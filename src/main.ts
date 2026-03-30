@@ -6,24 +6,24 @@ const messages = {
   en: {
     nav: { home: 'Home', projects: 'Projects', contact: 'Contact' },
     hero: {
-      title: 'Hi, I am Max Mustermann',
-      subtitle: 'Frontend Developer & Designer',
+      title: 'Hi, I am Sefa Kutlu',
+      subtitle: 'Software Developer',
       cta: 'See my work',
     },
   },
   de: {
     nav: { home: 'Start', projects: 'Projekte', contact: 'Kontakt' },
     hero: {
-      title: 'Hallo, ich bin Max Mustermann',
-      subtitle: 'Frontend Entwickler & Designer',
+      title: 'Hallo, ich bin Sefa Kutlu',
+      subtitle: 'Software Entwickler',
       cta: 'Meine Arbeit sehen',
     },
   },
   tr: {
     nav: { home: 'Anasayfa', projects: 'Projeler', contact: 'İletişim' },
     hero: {
-      title: 'Merhaba, ben Max Mustermann',
-      subtitle: 'Önyüz Geliştirici & Tasarımcı',
+      title: 'Merhaba, ben Sefa Kutlu',
+      subtitle: 'Yazılım geliştiricisi',
       cta: 'Çalışmalarımı gör',
     },
   },
