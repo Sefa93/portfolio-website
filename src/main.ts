@@ -4,7 +4,7 @@ import { createI18n } from 'vue-i18n'
 
 const messages = {
   en: {
-    nav: { home: 'Home', projects: 'Projects', contact: 'Contact' },
+    nav: { home: 'Home', skills: 'Skills', projects: 'Projects', contact: 'Contact' },
     hero: {
       title: 'Hi, I am Sefa Kutlu',
       subtitle: 'Software Developer',
@@ -12,7 +12,7 @@ const messages = {
     },
   },
   de: {
-    nav: { home: 'Start', projects: 'Projekte', contact: 'Kontakt' },
+    nav: { home: 'Start', skills: 'Fähigkeiten', projects: 'Projekte', contact: 'Kontakt' },
     hero: {
       title: 'Hallo, ich bin Sefa Kutlu',
       subtitle: 'Software Entwickler',
@@ -20,7 +20,7 @@ const messages = {
     },
   },
   tr: {
-    nav: { home: 'Anasayfa', projects: 'Projeler', contact: 'İletişim' },
+    nav: { home: 'Anasayfa', skills: 'Yetkinlikler', projects: 'Projeler', contact: 'İletişim' },
     hero: {
       title: 'Merhaba, ben Sefa Kutlu',
       subtitle: 'Yazılım geliştiricisi',

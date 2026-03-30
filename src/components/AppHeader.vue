@@ -54,9 +54,10 @@ const changeLanguage = (code: string) => {
       </div>
 
       <nav class="nav-links desktop-only">
-        <a href="#">{{ t('nav.home') }}</a>
-        <a href="#">{{ t('nav.projects') }}</a>
-        <a href="#">{{ t('nav.contact') }}</a>
+        <a href="#" @click.prevent="$emit('navigate', 'home')">{{ t('nav.home') }}</a>
+        <a href="#" @click.prevent="$emit('navigate', 'skills')">{{ t('nav.skills') }}</a>
+        <a href="#" @click.prevent="$emit('navigate', 'projects')">{{ t('nav.projects') }}</a>
+        <a href="#" @click.prevent="$emit('navigate', 'contact')">{{ t('nav.contact') }}</a>
       </nav>
     </div>
 

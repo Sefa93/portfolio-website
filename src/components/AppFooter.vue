@@ -12,7 +12,7 @@
       <a href="#" class="icon li"><i class="fab fa-linkedin"></i></a>
       <a href="#" class="icon xi"><i class="fab fa-xing"></i></a>
     </div>
-    <p class="copyright">© 2026 Max Mustermann. Alle Rechte vorbehalten.</p>
+    <p class="copyright">© 2026 Sefa Kutlu. Alle Rechte vorbehalten.</p>
   </footer>
 </template>
 
