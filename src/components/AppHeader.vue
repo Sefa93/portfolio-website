@@ -56,7 +56,7 @@ const changeLanguage = (code: string) => {
       <nav class="nav-links desktop-only">
         <a href="#" @click.prevent="$emit('navigate', 'home')">{{ t('nav.home') }}</a>
         <a href="#" @click.prevent="$emit('navigate', 'skills')">{{ t('nav.skills') }}</a>
-        <a href="#" @click.prevent="$emit('navigate', 'projects')">{{ t('nav.projects') }}</a>
+        <a href="#" @click.prevent="$emit('navigate', 'projects')">{{ t('nav.about') }}</a>
         <a href="#" @click.prevent="$emit('navigate', 'contact')">{{ t('nav.contact') }}</a>
       </nav>
     </div>
@@ -64,7 +64,7 @@ const changeLanguage = (code: string) => {
     <transition name="mobile-slide">
       <nav v-if="isMobileMenuOpen" class="mobile-nav">
         <a href="#" @click="isMobileMenuOpen = false">{{ t('nav.home') }}</a>
-        <a href="#" @click="isMobileMenuOpen = false">{{ t('nav.projects') }}</a>
+        <a href="#" @click="isMobileMenuOpen = false">{{ t('nav.about') }}</a>
         <a href="#" @click="isMobileMenuOpen = false">{{ t('nav.contact') }}</a>
       </nav>
     </transition>

@@ -1,5 +1,7 @@
 <script setup lang="ts">
-// Keine spezielle Logik nötig, da Links statisch sind
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 </script>
 
 <template>
@@ -12,7 +14,7 @@
       <a href="#" class="icon li"><i class="fab fa-linkedin"></i></a>
       <a href="#" class="icon xi"><i class="fab fa-xing"></i></a>
     </div>
-    <p class="copyright">© 2026 Sefa Kutlu. Alle Rechte vorbehalten.</p>
+    <p class="copyright">{{ t('copyright') }}</p>
   </footer>
 </template>
 

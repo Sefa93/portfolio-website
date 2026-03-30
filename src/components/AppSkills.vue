@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 const searchTerm = ref('')
 
@@ -55,7 +58,7 @@ const filteredTechnologies = computed(() => {
       <input
         v-model="searchTerm"
         type="text"
-        placeholder="Technologie suchen..."
+        :placeholder="t('search_placeholder')"
         class="search-input"
       />
     </div>
