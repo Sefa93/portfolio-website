@@ -3,6 +3,7 @@ import { ref, onMounted, watch, type Ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 const { t, locale } = useI18n()
+
 const displayTextHeader = ref('')
 const displayTextSubtitle = ref('')
 const isTypingFinished = ref(false)
@@ -50,7 +51,13 @@ onMounted(runAnimation)
         <span v-if="showSubtitleCursor" class="cursor">|</span>
       </p>
       <transition name="fade">
-        <button v-if="isTypingFinished" class="cta-button">{{ t('hero.cta') }}</button>
+        <button
+          v-if="isTypingFinished"
+          class="cta-button"
+          @click.prevent="$emit('navigate', 'about')"
+        >
+          {{ t('hero.cta') }}
+        </button>
       </transition>
     </section>
   </main>

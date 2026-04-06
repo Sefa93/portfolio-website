@@ -7,6 +7,7 @@ const { t } = useI18n()
 const searchTerm = ref('')
 
 const allTechnologies = [
+  // Bestehende Sprachen
   {
     id: 1,
     name: 'Java',
@@ -34,13 +35,83 @@ const allTechnologies = [
   },
   {
     id: 6,
+    name: 'JavaScript',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
+  },
+
+  // Frameworks & Mobile
+  {
+    id: 7,
     name: 'Vue.js',
     logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg',
   },
   {
-    id: 7,
+    id: 8,
+    name: 'Angular',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg',
+  },
+  {
+    id: 9,
+    name: 'React Native',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
+  },
+  {
+    id: 10,
+    name: 'Flutter',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg',
+  },
+  {
+    id: 11,
+    name: 'Node.js',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
+  },
+  // Datenbanken
+  {
+    id: 18,
+    name: 'MySQL',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg',
+  },
+  {
+    id: 19,
+    name: 'PostgreSQL',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg',
+  },
+
+  // Tools & DevOps
+  {
+    id: 12,
     name: 'Git',
     logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg',
+  },
+  {
+    id: 13,
+    name: 'Docker',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg',
+  },
+  {
+    id: 14,
+    name: 'Jenkins',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg',
+  },
+  {
+    id: 15,
+    name: 'Jira',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg',
+  },
+  {
+    id: 16,
+    name: 'Bitbucket',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bitbucket/bitbucket-original.svg',
+  },
+  {
+    id: 17,
+    name: 'Confluence',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/confluence/confluence-original.svg',
+  },
+  {
+    id: 20,
+    name: 'Spring Boot',
+    logo: 'https://raw.githubusercontent.com/devicons/devicon/54cfe13ac10eaa1ef817a343ab0a9437eb3c2e08/icons/spring/spring-original.svg',
   },
 ]
 
@@ -97,7 +168,7 @@ const filteredTechnologies = computed(() => {
 }
 
 .search-input {
-  width: 100%;
+  width: stretch;
   padding: 12px 12px 12px 40px;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);

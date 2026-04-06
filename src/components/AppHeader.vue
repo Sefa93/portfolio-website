@@ -2,9 +2,18 @@
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
+const props = defineProps({
+  activeTab: String,
+})
+
 const { t, locale } = useI18n()
 const isLangDropdownOpen = ref(false)
 const isMobileMenuOpen = ref(false)
+
+//const topIndex = ref(100)
+// Die individuellen Z-Indizes der Elemente
+const dropdownZIndex = ref(2)
+const mobileNavZindex = ref(2)
 
 const languages = [
   { code: 'de', name: 'Deutsch', flagUrl: 'https://flagcdn.com/w40/de.png' },
@@ -16,16 +25,37 @@ const changeLanguage = (code: string) => {
   locale.value = code
   isLangDropdownOpen.value = false
 }
+
+const bringToFront = (element: string) => {
+  if (element === 'dropdown-menu') {
+    dropdownZIndex.value = 100
+    mobileNavZindex.value = 33
+  } else {
+    dropdownZIndex.value = 33
+    mobileNavZindex.value = 100
+  }
+}
+
+const onLangDropdownClicked = () => {
+  isLangDropdownOpen.value = !isLangDropdownOpen.value
+  bringToFront('dropdown-menu')
+}
+
+const onHamburgerClicked = () => {
+  isMobileMenuOpen.value = !isMobileMenuOpen.value
+  bringToFront('mobile-nav')
+}
 </script>
 
 <template>
   <header class="animated-header-footer">
     <div class="header-main">
-      <h1 class="logo">Sefa Kutlu</h1>
-
+      <h1 class="logo" style="cursor: pointer" @click.prevent="$emit('navigate', 'home')">
+        Sefa Kutlu
+      </h1>
       <div class="header-actions">
-        <div class="custom-dropdown">
-          <button @click="isLangDropdownOpen = !isLangDropdownOpen" class="dropdown-trigger">
+        <div class="custom-dropdown" :style="{ zIndex: dropdownZIndex }">
+          <button @click="onLangDropdownClicked()" class="dropdown-trigger">
             <img :src="languages.find((l) => l.code === locale)?.flagUrl" class="flag-img" />
             <i class="fas fa-chevron-down icon-small"></i>
           </button>
@@ -46,7 +76,7 @@ const changeLanguage = (code: string) => {
 
         <button
           class="hamburger"
-          @click="isMobileMenuOpen = !isMobileMenuOpen"
+          @click="onHamburgerClicked()"
           :class="{ 'is-active': isMobileMenuOpen }"
         >
           <span class="line"></span><span class="line"></span><span class="line"></span>
@@ -54,18 +84,47 @@ const changeLanguage = (code: string) => {
       </div>
 
       <nav class="nav-links desktop-only">
-        <a href="#" @click.prevent="$emit('navigate', 'home')">{{ t('nav.home') }}</a>
-        <a href="#" @click.prevent="$emit('navigate', 'skills')">{{ t('nav.skills') }}</a>
-        <a href="#" @click.prevent="$emit('navigate', 'projects')">{{ t('nav.about') }}</a>
-        <a href="#" @click.prevent="$emit('navigate', 'contact')">{{ t('nav.contact') }}</a>
+        <a
+          href="#"
+          :class="{ active: props.activeTab === 'home' }"
+          @click.prevent="$emit('navigate', 'home')"
+          >{{ t('nav.home') }}</a
+        >
+        <a
+          href="#"
+          :class="{ active: props.activeTab === 'skills' }"
+          @click.prevent="$emit('navigate', 'skills')"
+          >{{ t('nav.skills') }}</a
+        >
+        <a
+          href="#"
+          :class="{ active: props.activeTab === 'about' }"
+          @click.prevent="$emit('navigate', 'about')"
+          >{{ t('nav.about') }}</a
+        >
+        <a
+          href="#"
+          :class="{ active: props.activeTab === 'contact' }"
+          @click.prevent="$emit('navigate', 'contact')"
+          >{{ t('nav.contact') }}</a
+        >
       </nav>
     </div>
 
     <transition name="mobile-slide">
-      <nav v-if="isMobileMenuOpen" class="mobile-nav">
-        <a href="#" @click="isMobileMenuOpen = false">{{ t('nav.home') }}</a>
-        <a href="#" @click="isMobileMenuOpen = false">{{ t('nav.about') }}</a>
-        <a href="#" @click="isMobileMenuOpen = false">{{ t('nav.contact') }}</a>
+      <nav v-if="isMobileMenuOpen" class="mobile-nav" :style="{ zIndex: mobileNavZindex }">
+        <a href="#" @click="isMobileMenuOpen = false" @click.prevent="$emit('navigate', 'home')">
+          {{ t('nav.home') }}
+        </a>
+        <a href="#" @click="isMobileMenuOpen = false" @click.prevent="$emit('navigate', 'skills')">
+          {{ t('nav.skills') }}
+        </a>
+        <a href="#" @click="isMobileMenuOpen = false" @click.prevent="$emit('navigate', 'about')">
+          {{ t('nav.about') }}
+        </a>
+        <a href="#" @click="isMobileMenuOpen = false" @click.prevent="$emit('navigate', 'contact')">
+          {{ t('nav.contact') }}
+        </a>
       </nav>
     </transition>
   </header>
@@ -112,6 +171,10 @@ const changeLanguage = (code: string) => {
 }
 
 .nav-links a:hover {
+  color: #ff4d4d;
+}
+
+.nav-links .active {
   color: #ff4d4d;
 }
 
