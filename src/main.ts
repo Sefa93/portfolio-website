@@ -106,7 +106,7 @@ const messages = {
           'Frontend-Entwicklung mit TypeScript und Angular',
           'Koordinerung und Aufgabenverteilung als Frontend Lead Developer',
           'Umsetzung von Kundenanforderungen',
-          'Mitwirken bei DevOps Aufgaben (Docker, Jenkins, Ansiblle)',
+          'Mitwirken bei DevOps Aufgaben (Docker, Jenkins, Ansible)',
           'Dokumentation und Pflege von Software',
           'Schreiben und durchführen von Software Tests',
         ],
